@@ -208,15 +208,15 @@
     @apply flex-center flex-col  gap-2 rounded-md bg-blue-25/20 px-4 py-2 text-white;
   }
 
-  .header-box {
+  .header {
     @apply flex flex-col gap-1;
   }
 
-  .header-box-title {
+  .header-title {
     @apply text-24 lg:text-30 font-semibold text-gray-900;
   }
 
-  .header-box-subtext {
+  .header-subtext {
     @apply text-14 lg:text-16 font-normal text-gray-600;
   }
 
