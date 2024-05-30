@@ -71,7 +71,7 @@ const config = {
       },
       backgroundImage: {
         "bank-gradient": "linear-gradient(90deg, #00D4D5 0%, #C6F8FF 100%)",
-        "gradient-mesh": "url('/icons/gradient-mesh.svg')",
+        "gradient-mesh": "url('/gradient-mesh.svg')",
         "bank-green-gradient":
           "linear-gradient(90deg, #01797A 0%, #489399 100%)",
       },
