@@ -10,7 +10,7 @@ export default function DoughnutChart({ accounts }: DoughnutChartProps) {
       {
         data: [1250, 2500, 3750],
         label: "Amount",
-        backgroundColor: ["#0747b6", "#2265d8", "#2f91fa"],
+        backgroundColor: ["#00D4D5", "#009D9E", "#BFFCFB"],
       },
     ],
     labels: ["Bank 1", "Bank 2", "Bank 3"],
