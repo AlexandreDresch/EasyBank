@@ -155,7 +155,7 @@ declare interface HeaderProps {
   user?: string;
 }
 
-declare interface MobileNavProps {
+declare interface MobileNavbarProps {
   user: User;
 }
 
@@ -218,7 +218,7 @@ declare interface RightSidebarProps {
   banks: Bank[] & Account[];
 }
 
-declare interface SiderbarProps {
+declare interface SidebarProps {
   user: User;
 }
 
