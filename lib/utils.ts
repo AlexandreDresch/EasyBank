@@ -185,11 +185,64 @@ export const getTransactionStatus = (date: Date) => {
   return date > twoDaysAgo ? "Processing" : "Success";
 };
 
-export const authFormSchema = z.object({
-  email: z
-    .string()
-    .email({ message: "Invalid email address. Please enter a valid email." }),
-  password: z
-    .string()
-    .min(8, { message: "Password must be at least 8 characters long." }),
-});
+export const authFormSchema = (type: "sign-in" | "sign-up") =>
+  z.object({
+    email: z
+      .string()
+      .email({ message: "Invalid email address. Please enter a valid email." }),
+    password: z
+      .string()
+      .min(8, { message: "Password must be at least 8 characters long." }),
+    firstName:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string()
+            .min(1, { message: "First name is required." })
+            .regex(/^[a-zA-Z]+$/, {
+              message: "First name can only contain letters.",
+            }),
+    lastName:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string()
+            .min(1, { message: "Last name is required." })
+            .regex(/^[a-zA-Z]+$/, {
+              message: "Last name can only contain letters.",
+            }),
+    address1:
+      type === "sign-in"
+        ? z.string().optional()
+        : z.string().min(1, { message: "Address is required." }),
+    city:
+      type === "sign-in"
+        ? z.string().optional()
+        : z.string().min(1, { message: "City is required." }),
+    postalCode:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string()
+            .regex(/^\d{5}(-\d{4})?$/, { message: "Invalid postal code." }),
+    state:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string()
+            .min(2, { message: "State is required." })
+            .max(2, { message: "State can only be two characters long." }),
+    dateOfBirth:
+      type === "sign-in"
+        ? z.string().optional()
+        : z.string().regex(/^\d{4}-\d{2}-\d{2}$/, {
+            message: "Date of birth must be in the format YYYY-MM-DD.",
+          }),
+    ssn:
+      type === "sign-in"
+        ? z.string().optional()
+        : z.string().regex(/^\d{3}-\d{2}-\d{4}$/, {
+            message:
+              "Invalid SSN format. It must be in the format XXX-XX-XXXX.",
+          }),
+  });
