@@ -3,5 +3,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <main>{children}</main>;
+  return (
+    <main className="flex min-h-screen w-full justify-between font-inter">
+      {children}
+      <div className="auth-asset">
+        <div>
+          {/* <Image
+            src={"/preview.svg"}
+            width={500}
+            height={500}
+            alt="EasyBank - Preview"
+          /> */}
+        </div>
+      </div>
+    </main>
+  );
 }
