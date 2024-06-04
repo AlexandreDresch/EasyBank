@@ -13,6 +13,7 @@ import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { signIn, signUp } from "@/lib/actions/user.actions";
+import PlaidLink from "./plaid-link";
 
 export default function AuthForm({ type }: AuthFormProps) {
   const [user, setUser] = useState(null);
@@ -34,10 +35,23 @@ export default function AuthForm({ type }: AuthFormProps) {
     setIsLoading(true);
     try {
       if (type === "sign-up") {
-        const newUser = await signUp(values)
+        const userData = {
+          firstName: values.firstName!,
+          lastName: values.lastName!,
+          address1: values.address1!,
+          city: values.city!,
+          state: values.state!,
+          postalCode: values.postalCode!,
+          dateOfBirth: values.dateOfBirth!,
+          ssn: values.ssn!,
+          email: values.email,
+          password: values.password,
+        };
+
+        const newUser = await signUp(userData);
         setUser(newUser);
-      } 
-      
+      }
+
       if (type === "sign-in") {
         const response = await signIn({
           email: values.email,
@@ -84,7 +98,9 @@ export default function AuthForm({ type }: AuthFormProps) {
       </header>
 
       {user ? (
-        <div className="flex flex-col gap-4"></div>
+        <div className="flex flex-col gap-4">
+          <PlaidLink user={user} variant="primary" />
+        </div>
       ) : (
         <>
           <Form {...form}>
