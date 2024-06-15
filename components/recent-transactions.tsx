@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BankTabItem from "./bank-tab-item";
 import BankInfo from "./bank-info";
+import TransactionsTable from "./transactions-table";
 
 export default function RecentTransactions({
   accounts,
@@ -46,6 +47,8 @@ export default function RecentTransactions({
               appwriteItemId={appwriteItemId}
               key={account.id}
             />
+
+            <TransactionsTable transactions={transactions} />
           </TabsContent>
         ))}
       </Tabs>
