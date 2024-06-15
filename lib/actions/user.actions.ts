@@ -32,7 +32,7 @@ export const getUserInfo = async ({ userId }: getUserInfoProps) => {
 
     return parseStringify(user.documents[0]);
   } catch (error) {
-    console.log(error);
+    console.error("Error", error);
   }
 };
 
@@ -123,7 +123,7 @@ export async function getLoggedInUser() {
 
     return parseStringify(user);
   } catch (error) {
-    console.error(error)
+    console.error("Error", error);
   }
 }
 
@@ -155,7 +155,7 @@ export async function createLinkToken(user: User) {
 
     return parseStringify({ linkToken: response.data.link_token });
   } catch (error) {
-    console.log(error);
+    console.error("Error", error);
   }
 }
 
@@ -186,7 +186,7 @@ export async function createBankAccount({
 
     return parseStringify(bankAccount);
   } catch (error) {
-    console.log(error);
+    console.error("Error", error);
   }
 }
 
@@ -258,7 +258,7 @@ export async function getBanks({ userId }: getBanksProps) {
 
     return parseStringify(banks.documents);
   } catch (error) {
-    console.log(error);
+    console.error("Error", error);
   }
 }
 
@@ -274,6 +274,6 @@ export async function getBank({ documentId }: getBankProps) {
 
     return parseStringify(bank.documents[0]);
   } catch (error) {
-    console.log(error);
+    console.error("Error", error);
   }
 }
