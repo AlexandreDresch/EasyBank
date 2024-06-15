@@ -40,7 +40,7 @@ export default async function Home({
 
         <RecentTransactions
           accounts={accounts?.data}
-          transactions={accounts?.transactions}
+          transactions={account?.transactions}
           appwriteItemId={appwriteItemId}
           page={currentPage}
         />
@@ -49,7 +49,7 @@ export default async function Home({
       <RightSidebar
         user={loggedIn}
         banks={accounts?.data.slice(0, 2)}
-        transactions={accounts?.transactions}
+        transactions={account?.transactions}
       />
     </section>
   );
