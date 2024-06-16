@@ -60,8 +60,13 @@ declare type Account = {
   type: string;
   subtype: string;
   appwriteItemId: string;
-  sharableId: string;
+  shareableId: string;
 };
+
+declare type ProgressBarProps = {
+  title: string;
+  value: number;
+}
 
 declare type Transaction = {
   id: string;
@@ -140,6 +145,7 @@ declare type NewDwollaCustomerParams = {
 declare interface CreditCardProps {
   account: Account;
   userName: string;
+  className?: string;
   showBalance?: boolean;
 }
 
