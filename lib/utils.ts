@@ -185,6 +185,21 @@ export const getTransactionStatus = (date: Date) => {
   return date > twoDaysAgo ? "Processing" : "Success";
 };
 
+export function calculatePercentage({
+  currentBalance,
+  availableBalance,
+}: {
+  currentBalance: number;
+  availableBalance: number;
+}) {
+  if (availableBalance === 0) {
+    return 0;
+  }
+
+  const percentage = ( currentBalance  / availableBalance) * 100;
+  return Math.floor(percentage);
+}
+
 export const authFormSchema = (type: "sign-in" | "sign-up") =>
   z.object({
     email: z
