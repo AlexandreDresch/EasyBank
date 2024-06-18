@@ -21,6 +21,7 @@ export default function Copy({ title }: { title: string }) {
       data-state="closed"
       className="flex justify-end"
       variant="secondary"
+      size="icon"
       onClick={copyToClipboard}
     >
       {!hasCopied ? (

@@ -65,11 +65,11 @@ export default function BankCard({
       </Link>
 
       {showBalance && (
-        <div className="flex gap-1">
+        <div className="flex gap-1 p-1 px-2">
           <ProgressBar
             title={`Spent ${formatAmount(
               account?.currentBalance - account?.availableBalance
-            )} of ${formatAmount(account.currentBalance)} this month.`}
+            )} of ${formatAmount(account.currentBalance)} available.`}
             value={calculatePercentage({
               currentBalance:
                 account?.currentBalance - account?.availableBalance,
@@ -79,10 +79,10 @@ export default function BankCard({
 
           <HoverCard>
             <HoverCardTrigger>
-              <Copy title={account?.shareableId} />
+              <Copy  title={account?.shareableId} />
             </HoverCardTrigger>
-            <HoverCardContent className="text-sm max-w-28">
-              Copy your account key.
+            <HoverCardContent className="text-sm max-w-36">
+              Copy your key.
             </HoverCardContent>
           </HoverCard>
         </div>

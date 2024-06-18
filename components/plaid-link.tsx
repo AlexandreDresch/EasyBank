@@ -67,19 +67,19 @@ export default function PlaidLink({ user, variant }: PlaidLinkProps) {
             width={24}
             height={24}
           />
-          <p className="hidden text-[16px] font-semibold text-black-2 xl:block">
+          <p className="sidebar-label">
             Connect Bank
           </p>
         </Button>
       ) : (
-        <Button className="plaidlink-default" onClick={() => open()}>
+        <Button className="plaidlink-default sidebar-link" onClick={() => open()}>
           <Image
             src="/icons/connect-bank.svg"
             alt="Connect Bank"
             width={24}
             height={24}
           />
-          <p className="text-[16px] font-semibold text-black-2">Connect Bank</p>
+          <p className="sidebar-label">Connect Bank</p>
         </Button>
       )}
     </>
