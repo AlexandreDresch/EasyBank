@@ -196,7 +196,7 @@ export function calculatePercentage({
     return 0;
   }
 
-  const percentage = ( currentBalance  / availableBalance) * 100;
+  const percentage = (currentBalance / availableBalance) * 100;
   return Math.floor(percentage);
 }
 
@@ -261,3 +261,21 @@ export const authFormSchema = (type: "sign-in" | "sign-up") =>
               "Invalid SSN format. It must be in the format XXX-XX-XXXX.",
           }),
   });
+
+export const paymentFormSchema = z.object({
+  email: z
+    .string()
+    .email({ message: "Invalid email address. Please enter a valid email." }),
+  name: z.string().min(4, { message: "Transfer note is too short." }),
+  amount: z
+    .string()
+    .regex(/^\d+(\.\d{1,2})?$/, {
+      message: "Amount must be a valid number with up to two decimal places.",
+    }),
+  senderBank: z
+    .string()
+    .min(4, { message: "Please select a valid bank account." }),
+  shareableId: z
+    .string()
+    .min(8, { message: "Please select a valid shareable Id." }),
+});
