@@ -66,7 +66,8 @@ declare type Account = {
 declare type ProgressBarProps = {
   title: string;
   value: number;
-}
+  indicatorColor: string;
+};
 
 declare type Transaction = {
   id: string;

@@ -19,7 +19,7 @@ export default function BankCard({
       >
         <div className="bank-card_content">
           <div>
-            <h1 className="text-16 font-semibold text-white">{userName}</h1>
+            <h1 className="text-16 font-semibold text-white">{account.name}</h1>
 
             <p className="font-ibm-plex-serif font-black text-white">
               {formatAmount(account.currentBalance)}
@@ -75,11 +75,12 @@ export default function BankCard({
                 account?.currentBalance - account?.availableBalance,
               availableBalance: account?.availableBalance,
             })}
+            indicatorColor="bg-button"
           />
 
           <HoverCard>
             <HoverCardTrigger>
-              <Copy  title={account?.shareableId} />
+              <Copy title={account?.shareableId} />
             </HoverCardTrigger>
             <HoverCardContent className="text-sm max-w-36">
               Copy your key.
