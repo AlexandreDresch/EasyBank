@@ -54,12 +54,12 @@ export const topCategoryStyles = {
     bg: "bg-blue-25",
     circleBg: "bg-blue-100",
     text: {
-      main: "text-blue-900",
-      count: "text-blue-700",
+      main: "text-blue-500",
+      count: "text-blue-500",
     },
     progress: {
       bg: "bg-blue-100",
-      indicator: "bg-blue-700",
+      indicator: "bg-blue-500",
     },
     icon: "/icons/monitor.svg",
   },
