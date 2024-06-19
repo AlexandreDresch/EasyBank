@@ -1,4 +1,5 @@
 import Header from "@/components/header";
+import Pagination from "@/components/pagination";
 import TransactionsTable from "@/components/transactions-table";
 import { getAccount, getAccounts } from "@/lib/actions/bank.actions";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
@@ -18,6 +19,18 @@ export default async function TransactionHistory({
   const appwriteItemId = (id as string) || accounts?.data[0]?.appwriteItemId;
 
   const account = await getAccount({ appwriteItemId });
+
+  const rowsPerPage = 10;
+  const totalPages = Math.ceil(account?.transactions.length / rowsPerPage);
+
+  const indexOfLastTransaction = currentPage * rowsPerPage;
+  const indexOfFirstTransaction = indexOfLastTransaction - rowsPerPage;
+
+  const currentTransactions = account?.transactions.slice(
+    indexOfFirstTransaction,
+    indexOfLastTransaction
+  );
+
   return (
     <section className="transactions">
       <div className="transactions-header">
@@ -53,7 +66,11 @@ export default async function TransactionHistory({
         </div>
 
         <section className="flex w-full flex-col gap-6">
-          <TransactionsTable transactions={account?.transactions} />
+          <TransactionsTable transactions={currentTransactions} />
+
+          {totalPages > 1 && (
+            <Pagination totalPages={totalPages} page={currentPage} />
+          )}
         </section>
       </div>
     </section>
