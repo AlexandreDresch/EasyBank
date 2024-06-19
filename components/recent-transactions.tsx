@@ -62,7 +62,9 @@ export default function RecentTransactions({
 
             <TransactionsTable transactions={currentTransactions} />
 
-            <Pagination totalPages={totalPages} page={page} />
+            {totalPages > 1 && (
+              <Pagination totalPages={totalPages} page={page} />
+            )}
           </TabsContent>
         ))}
       </Tabs>
