@@ -14,7 +14,7 @@
 
 - **Make Transactions:** Transfer funds between connected accounts.
 
-### Click [here](easy-bank-eta-inky.vercel.app) to access the project.
+### Click [here](https://easy-bank-eta-inky.vercel.app) to access the project.
 
 ## Starting the project
 Clone the repository:
